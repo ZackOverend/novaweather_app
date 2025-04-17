@@ -92,26 +92,42 @@ class _LocationScreenState extends State<LocationScreen> {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         const SizedBox(height: 80),
-        Align(
-          alignment: Alignment.centerLeft,
-          child: Text(
-            "$city, $country",
-            style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
+        Row(
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "$city, $country",
+                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                Text(
+                  "$description",
+                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+              ],
             ),
-          ),
-        ),
-        Align(
-          alignment: Alignment.centerLeft,
-          child: Text(
-            "$description",
-            style: Theme.of(context).textTheme.titleSmall?.copyWith(
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
+            Spacer(),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                if (icon != null)
+                  Image.network(
+                    "http://openweathermap.org/img/wn/$icon@4x.png",
+                    width: 80,
+                    height: 80,
+                  ),
+              ],
             ),
-          ),
+          ],
         ),
+
         const SizedBox(height: 20),
 
         const SizedBox(height: 20),
@@ -163,16 +179,26 @@ class _LocationScreenState extends State<LocationScreen> {
                     value: "${(visibility / 1000).toStringAsFixed(1)} km",
                   ),
                   const SizedBox(height: 40),
-                  Align(
-                    alignment: Alignment.center,
-                    child: Text(
-                      summary,
-                      style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(24),
+                    child: Container(
+                      padding: const EdgeInsets.all(24),
+
+                      width: double.infinity,
+                      color: Color(0xFF343434),
+                      child: Column(
+                        children: [
+                          Text(
+                            summary,
+                            textAlign: TextAlign.center,
+                            style: Theme.of(context).textTheme.titleSmall
+                                ?.copyWith(color: Colors.white),
+                          ),
+                        ],
                       ),
                     ),
                   ),
+
                   const SizedBox(height: 200),
                 ],
               ),
