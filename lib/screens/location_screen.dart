@@ -18,6 +18,8 @@ class _LocationScreenState extends State<LocationScreen> {
 
   bool _isLoading = true;
   Map<String, dynamic>? _weatherData;
+  Map<String, dynamic>? _summaryData;
+
   String? _error;
 
   @override
@@ -30,7 +32,8 @@ class _LocationScreenState extends State<LocationScreen> {
     try {
       final data = await _weatherService.fetchWeather(widget.location.city);
       setState(() {
-        _weatherData = data;
+        _weatherData = data['weather'];
+        _summaryData = data;
         _isLoading = false;
       });
     } catch (e) {
@@ -67,6 +70,8 @@ class _LocationScreenState extends State<LocationScreen> {
   }
 
   Widget _buildWeatherDetails() {
+    final summary = _summaryData?['summary'];
+
     final city = _weatherData?['name'];
     final country = _weatherData?['sys']?['country'];
 
@@ -157,7 +162,18 @@ class _LocationScreenState extends State<LocationScreen> {
                     label: "Visibility",
                     value: "${(visibility / 1000).toStringAsFixed(1)} km",
                   ),
-                  const SizedBox(height: 400),
+                  const SizedBox(height: 40),
+                  Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      summary,
+                      style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 200),
                 ],
               ),
             ),

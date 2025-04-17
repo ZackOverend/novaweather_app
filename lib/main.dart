@@ -13,6 +13,7 @@ class NovaWeatherApp extends StatelessWidget {
     return MaterialApp(
       title: 'NovaWeather',
       theme: ThemeData(primarySwatch: Colors.blue),
+      debugShowCheckedModeBanner: false,
       home: const HomeScreen(),
     );
   }
