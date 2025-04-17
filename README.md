@@ -1,12 +1,20 @@
 
 ## **NovaWeather**
-  
+<img src="https://github.com/user-attachments/assets/264b2810-3288-495a-94c8-8fde0f003b82" width="600"/>&nbsp;&nbsp;&nbsp;
+<img src="https://github.com/user-attachments/assets/264b2810-3288-495a-94c8-8fde0f003b82" width="600"/>&nbsp;&nbsp;&nbsp;
+
+
 NovaWeather is a modern Flutter application, a port of [Nova Weather SwiftUI](https://github.com/ZackOverend/NovaWeather) that fetches and displays real-time weather data for multiple saved locations. It features a custom UI with gradient backgrounds, blurred card elements, and support for both light and dark themes. The app connects to a [Flask backend](https://github.com/ZackOverend/novaweather-backend) that serves weather data using the OpenWeatherMap API.
 
 ## Preview
 ---
-![Image](https://github.com/user-attachments/assets/14a2336d-1790-4e91-8a09-9c0f6959e607)
-![Image](https://github.com/user-attachments/assets/8e2f7a02-410a-4c15-ac9e-74980c0aa11e)
+
+<p float="left">
+  
+  <img src="https://github.com/user-attachments/assets/f72f77c1-8b0c-472c-8e5b-9482f79e5dff" width="300"/>&nbsp;&nbsp;&nbsp;
+  <img src="https://github.com/user-attachments/assets/98315585-607d-4178-b4e6-f27929450cff" width="300"/>
+</p>
+
 ---
 
 ### **Features**
