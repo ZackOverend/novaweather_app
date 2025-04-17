@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:novaweather_app/screens/location_screen.dart';
 import '../services/weather_services.dart';
 import '../models/saved_location.dart';
 import '../services/location_storage.dart';
@@ -64,6 +65,13 @@ class _HomeScreenState extends State<HomeScreen> {
     _storage.saveLocations(_locations);
   }
 
+  void _navigateToLocation(SavedLocation location) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (_) => LocationScreen(location: location)),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -108,6 +116,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Icons.arrow_forward_ios,
                                 size: 18,
                               ),
+                              onTap: () => _navigateToLocation(loc),
                             ),
                           );
                         },
@@ -119,7 +128,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: TextField(
                     controller: _controller,
                     decoration: const InputDecoration(
-                      hintText: "Enter a city...",
+                      hintText: "Find your City",
                       border: OutlineInputBorder(),
                     ),
                   ),
